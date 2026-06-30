@@ -1,0 +1,50 @@
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+    background: linear-gradient(135deg, #1f4d2c, #2f6b3d);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.logo h1 {
+    margin: 0;
+    color: #f7e7cf;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.navegacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.navegacao button {
+    border: 1px solid rgba(247, 231, 207, 0.35);
+    background: #f7e7cf;
+    color: #1f4d2c;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.navegacao button:hover {
+    transform: translateY(-2px);
+    background: #e7cfa4;
+    color: #14311f;
+}
+
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navegacao {
+        justify-content: center;
+    }
+}

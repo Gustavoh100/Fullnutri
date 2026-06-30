@@ -1,0 +1,110 @@
+.cardapio-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2.5rem 1rem 3.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #163a23 0%, #234d31 100%);
+}
+
+.cardapio-page h1 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #f7e7cf;
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-weight: 800;
+}
+
+.cardapio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.cardapio-card {
+  position: relative;
+  min-height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s ease, filter 0.35s ease;
+  border: 1px solid rgba(247, 231, 207, 0.25);
+}
+
+.cardapio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.45));
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.cardapio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.75s ease;
+}
+
+.cardapio-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.cardapio-label span {
+  color: #f7e7cf;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cardapio-label p {
+  color: #f7e7cf;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cardapio-card:hover {
+  filter: brightness(0.82) saturate(1.05);
+  transform: translateY(-4px);
+}
+
+.cardapio-card:hover::before {
+  opacity: 0.2;
+}
+
+.cardapio-card:hover .cardapio-overlay {
+  opacity: 1;
+}
+
+.cardapio-card:hover .cardapio-label span,
+.cardapio-card:hover .cardapio-label p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .cardapio-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .cardapio-grid {
+    grid-template-columns: 1fr;
+  }
+}

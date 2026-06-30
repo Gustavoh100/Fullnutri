@@ -1,0 +1,159 @@
+.monteprato-page {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+  background: linear-gradient(135deg, #163a23 0%, #234d31 100%);
+  color: #f8f7f2;
+}
+
+.monteprato-hero {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(247, 231, 207, 0.2);
+}
+
+.monteprato-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #2f9e44;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.monteprato-hero h1 {
+  margin: 0.3rem 0 0.7rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f7e7cf;
+}
+
+.monteprato-hero p {
+  margin: 0 auto;
+  max-width: 650px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #f7e7cf;
+}
+
+.monteprato-hero__link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  background: #f7e7cf;
+  color: #163a23;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.monteprato-content {
+  display: grid;
+  grid-template-columns: 1.6fr 0.9fr;
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.opcoes-lista {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.opcao-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #1f4d2c, #2f6b3d);
+  color: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opcao-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.opcao-card__imagem {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.opcao-card__conteudo {
+  flex: 1;
+}
+
+.opcao-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #f7e7cf;
+}
+
+.opcao-card p {
+  margin: 0;
+  color: #f7e7cf;
+  font-weight: 700;
+}
+
+.opcao-card button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: #f7e7cf;
+  color: #163a23;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.resumo-prato {
+  background: rgba(247, 231, 207, 0.95);
+  color: #163a23;
+  border-radius: 20px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+  height: fit-content;
+  border: 1px solid rgba(22, 58, 35, 0.1);
+}
+
+.resumo-prato h2 {
+  margin-top: 0;
+  font-weight: 800;
+  color: #163a23;
+}
+
+.resumo-prato ul {
+  padding-left: 1rem;
+  line-height: 1.7;
+  font-weight: 700;
+  color: #163a23;
+}
+
+.resumo-vazio {
+  color: #4b5d4e;
+}
+
+.resumo-total {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (max-width: 800px) {
+  .monteprato-content {
+    grid-template-columns: 1fr;
+  }
+}
