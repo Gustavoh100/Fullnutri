@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer-site">
       <p className="footer-site__text">FullNutri © 2026</p>
       <div className="footer-site__links">
-        <Link to="/Contatos">Contatos</Link>
+        <a href="https://wa.me/5511999999999?text=Olá%20FullNutri,%20quero%20saber%20mais" target="_blank" rel="noreferrer">Contatos</a>
         <Link to="/Terms">Termos e Privacidade</Link>
       </div>
     </footer>

@@ -1,0 +1,11 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marmita Italiana">
+  <rect width="800" height="600" rx="40" fill="#f7e7cf" />
+  <rect x="100" y="130" width="600" height="340" rx="50" fill="#fff2e0" stroke="#ff9f43" stroke-width="20" />
+  <path d="M180 240 C230 190 320 190 375 240 S500 310 560 240" fill="none" stroke="#d75a0f" stroke-width="30" stroke-linecap="round" />
+  <path d="M160 330 C260 280 340 280 430 330 S540 390 610 330" fill="none" stroke="#d75a0f" stroke-width="30" stroke-linecap="round" />
+  <circle cx="400" cy="460" r="55" fill="#fff0cc" stroke="#d75a0f" stroke-width="12" />
+  <circle cx="400" cy="455" r="22" fill="#d75a0f" />
+  <circle cx="460" cy="360" r="18" fill="#fff" />
+  <circle cx="330" cy="320" r="16" fill="#fff" />
+  <text x="400" y="80" text-anchor="middle" font-family="Segoe UI, sans-serif" font-weight="700" font-size="52" fill="#163a23">Italiana</text>
+</svg>

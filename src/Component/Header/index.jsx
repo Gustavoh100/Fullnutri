@@ -15,12 +15,11 @@ function Header() {
             </div>
             <nav className="navegacao">
                 <Link to="/" ><button>Home</button></Link>
-                <Link to="/singup" ><button>Login</button></Link>
-                <Link to="/cadastro" ><button>Cadastrar</button></Link>
-                <Link to="/cardapio" ><button>Cardápio</button></Link>
+                <Link to="/cadastro" ><button>Cadastro</button></Link>
+                <Link to="/cardapio" ><button>Marmitas</button></Link>
                 <Link to="/monteprato" ><button>Monte Seu Prato</button></Link>
                 <Link to="/planoassinatura" ><button>Assinatura</button></Link>
-                <Link to="/contatos" ><button>Contatos</button></Link>
+                <a href="https://wa.me/5511999999999?text=Olá%20FullNutri,%20quero%20saber%20mais" target="_blank" rel="noreferrer"><button>Contatos</button></a>
             </nav>
 
         </header>

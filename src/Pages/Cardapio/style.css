@@ -1,9 +1,11 @@
 .cardapio-page {
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   padding: 2.5rem 1rem 3.5rem;
   box-sizing: border-box;
   background: linear-gradient(135deg, #163a23 0%, #234d31 100%);
+  border: 2px solid rgba(255, 159, 67, 0.45);
 }
 
 .cardapio-page h1 {
@@ -14,10 +16,127 @@
   font-weight: 800;
 }
 
+.cardapio-highlight {
+  max-width: 1160px;
+  margin: 0 auto 1.5rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+  background: rgba(255, 159, 67, 0.16);
+  border: 1px solid rgba(255, 159, 67, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardapio-highlight__label {
+  display: inline-block;
+  margin: 0 0 0.4rem;
+  color: #ffcf8b;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.cardapio-highlight h2 {
+  color: #fff;
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.cardapio-highlight p {
+  color: #f7e7cf;
+  margin: 0;
+}
+
+.cardapio-highlight__price {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.cardapio-highlight__price strong {
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.cardapio-highlight__price span {
+  color: #ffd8b0;
+  text-decoration: line-through;
+}
+
+.cardapio-pay-btn,
+.cardapio-cancel-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.cardapio-pay-btn {
+  background: #f7e7cf;
+  color: #163a23;
+  border: 1px solid transparent;
+}
+
+.cardapio-pay-btn:hover {
+  transform: translateY(-2px);
+  background: #ff9f43;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(255, 159, 67, 0.25);
+}
+
+.cardapio-cancel-btn {
+  background: transparent;
+  color: #f7e7cf;
+  border: 1px solid #f7e7cf;
+  margin-left: 0.5rem;
+}
+
+.cardapio-cancel-btn:hover {
+  transform: translateY(-2px);
+  background: #ff9f43;
+  color: #fff;
+  border-color: #ff9f43;
+}
+
+.cardapio-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 20;
+  padding: 1rem;
+}
+
+.cardapio-modal__box {
+  width: min(420px, 100%);
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.3rem;
+  color: #163a23;
+}
+
+.cardapio-modal__box h3 {
+  margin-top: 0;
+}
+
 .cardapio-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(240px, 1fr));
   gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cardapio-card-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .cardapio-card {
@@ -52,11 +171,20 @@
 .cardapio-label {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.6rem;
   pointer-events: none;
+  gap: 0.55rem;
+}
+
+.cardapio-label p,
+.cardapio-label__foods,
+.cardapio-label__price {
+  width: 100%;
 }
 
 .cardapio-label span {
@@ -64,8 +192,8 @@
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -73,9 +201,52 @@
   color: #f7e7cf;
   font-weight: 600;
   margin-top: 0.5rem;
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cardapio-label__foods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.8rem 0 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cardapio-label__foods span {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.cardapio-label__price {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cardapio-label__price strong {
+  color: #fff;
+}
+
+.cardapio-label__price span {
+  color: #ffd8b0;
+  text-decoration: line-through;
+  font-size: 0.94rem;
 }
 
 .cardapio-card:hover {
@@ -92,9 +263,15 @@
 }
 
 .cardapio-card:hover .cardapio-label span,
-.cardapio-card:hover .cardapio-label p {
+.cardapio-card:hover .cardapio-label p,
+.cardapio-card:hover .cardapio-label__foods,
+.cardapio-card:hover .cardapio-label__price {
   opacity: 1;
   transform: translateY(0);
+}
+
+.cardapio-card:hover .cardapio-label {
+  justify-content: flex-start;
 }
 
 @media (max-width: 900px) {
@@ -106,5 +283,10 @@
 @media (max-width: 650px) {
   .cardapio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cardapio-highlight {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

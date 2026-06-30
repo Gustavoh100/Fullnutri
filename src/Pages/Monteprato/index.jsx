@@ -13,13 +13,46 @@ const opcoesDeAlimentos = [
 
 function Monteprato() {
   const [prato, setPrato] = useState([]);
+  const [pedidoConfirmado, setPedidoConfirmado] = useState(false);
 
   const adicionarItem = (item) => {
     setPrato([...prato, item]);
+    setPedidoConfirmado(false);
   };
 
-  const totalPreco = prato.reduce((soma, item) => soma + item.preco, 0).toFixed(2);
-  const totalPeso = prato.reduce((soma, item) => soma + item.peso, 0);
+  const alterarQuantidade = (id, delta) => {
+    setPrato((itensAtuais) => {
+      const novoPrato = [...itensAtuais];
+      const index = novoPrato.findIndex((item) => item.id === id);
+
+      if (index === -1) return itensAtuais;
+
+      const item = novoPrato[index];
+      const novaQuantidade = item.quantidade + delta;
+
+      if (novaQuantidade <= 0) {
+        novoPrato.splice(index, 1);
+      } else {
+        novoPrato[index] = { ...item, quantidade: novaQuantidade };
+      }
+
+      return novoPrato;
+    });
+    setPedidoConfirmado(false);
+  };
+
+  const limparPrato = () => {
+    setPrato([]);
+    setPedidoConfirmado(false);
+  };
+
+  const pagarPedido = () => {
+    if (prato.length === 0) return;
+    setPedidoConfirmado(true);
+  };
+
+  const totalPreco = prato.reduce((soma, item) => soma + item.preco * item.quantidade, 0).toFixed(2);
+  const totalPeso = prato.reduce((soma, item) => soma + item.peso * item.quantidade, 0);
 
   return (
     <main className="monteprato-page">
@@ -41,7 +74,7 @@ function Monteprato() {
                 <h3>{item.emoji} {item.nome}</h3>
                 <p>R$ {item.preco.toFixed(2)} • {item.peso}g</p>
               </div>
-              <button type="button" onClick={() => adicionarItem(item)}>
+              <button type="button" onClick={() => adicionarItem({ ...item, quantidade: 1 })}>
                 Adicionar
               </button>
             </article>
@@ -49,15 +82,31 @@ function Monteprato() {
         </div>
 
         <aside className="resumo-prato">
-          <h2>Seu prato</h2>
+          <div className="resumo-header">
+            <h2>Seu prato</h2>
+            <button type="button" className="resumo-limpar" onClick={limparPrato}>
+              Zerar prato
+            </button>
+          </div>
 
           {prato.length === 0 ? (
             <p className="resumo-vazio">Nenhum alimento adicionado ainda.</p>
           ) : (
             <ul>
               {prato.map((item, index) => (
-                <li key={`${item.id}-${index}`}>
-                  {item.nome} - R$ {item.preco.toFixed(2)} • {item.peso}g
+                <li key={`${item.id}-${index}`} className="resumo-item">
+                  <span>
+                    {item.nome} - R$ {(item.preco * item.quantidade).toFixed(2)} • {item.peso * item.quantidade}g
+                  </span>
+                  <div className="resumo-item__acoes">
+                    <button type="button" onClick={() => alterarQuantidade(item.id, -1)}>
+                      −
+                    </button>
+                    <span>{item.quantidade}</span>
+                    <button type="button" onClick={() => alterarQuantidade(item.id, 1)}>
+                      +
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -66,6 +115,14 @@ function Monteprato() {
           <div className="resumo-total">
             <p><strong>Peso total:</strong> {totalPeso}g</p>
             <p><strong>Preço total:</strong> R$ {totalPreco}</p>
+            {prato.length > 0 && (
+              <>
+                <button type="button" className="resumo-pagar" onClick={pagarPedido}>
+                  Pagar
+                </button>
+                {pedidoConfirmado && <p className="resumo-pagamento">Pedido pronto para pagamento!</p>}
+              </>
+            )}
           </div>
         </aside>
       </section>

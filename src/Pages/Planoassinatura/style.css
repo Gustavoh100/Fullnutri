@@ -1,0 +1,135 @@
+.assinatura-page {
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 2.5rem 1rem 3.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #163a23 0%, #234d31 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assinatura-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  max-width: 1100px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(12, 40, 24, 0.85);
+  border: 2px solid rgba(255, 159, 67, 0.45);
+  box-shadow: 0 20px 45px rgba(255, 159, 67, 0.12);
+}
+
+.assinatura-card__content h1 {
+  color: #f7e7cf;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0.4rem 0 0.8rem;
+  line-height: 1.1;
+}
+
+.assinatura-description {
+  color: #f7e7cf;
+  line-height: 1.7;
+}
+
+.assinatura-eyebrow {
+  display: inline-block;
+  margin: 0 0 0.6rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #f7e7cf;
+  color: #163a23;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.assinatura-preco {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 1.2rem 0 1.4rem;
+}
+
+.assinatura-preco__valor {
+  color: #ff9f43;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.assinatura-preco__periodo {
+  color: #f7e7cf;
+  font-weight: 700;
+}
+
+.assinatura-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.assinatura-btn {
+  display: inline-block;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid #ff9f43;
+  background: #f7e7d0;
+  color: #163a23;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.assinatura-btn:hover {
+  transform: translateY(-2px);
+  background: #ff9f43;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(255, 159, 67, 0.25);
+}
+
+.assinatura-btn--primary {
+  background: #ff9f43;
+  color: #fff;
+}
+
+.assinatura-btn--secondary {
+  background: transparent;
+  color: #f7e7cf;
+}
+
+.assinatura-beneficios {
+  background: rgba(255, 159, 67, 0.16);
+  border: 1px solid rgba(255, 159, 67, 0.35);
+  border-radius: 20px;
+  padding: 1.4rem;
+}
+
+.assinatura-beneficios h2 {
+  color: #fff4e6;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.assinatura-beneficios ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #fff4e6;
+  line-height: 1.9;
+  font-size: 1.02rem;
+}
+
+.assinatura-beneficios li {
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .assinatura-card {
+    grid-template-columns: 1fr;
+  }
+}

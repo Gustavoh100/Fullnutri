@@ -22,7 +22,7 @@
 }
 
 .navegacao button {
-    border: 1px solid rgba(247, 231, 207, 0.35);
+    border: 1px solid #f7e7cf;
     background: #f7e7cf;
     color: #1f4d2c;
     font-weight: 700;
@@ -34,8 +34,8 @@
 
 .navegacao button:hover {
     transform: translateY(-2px);
-    background: #e7cfa4;
-    color: #14311f;
+    background: #ff9f43;
+    color: #ffffff;
 }
 
 @media (max-width: 900px) {

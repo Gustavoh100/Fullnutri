@@ -3,6 +3,7 @@
   padding: 3rem 1.5rem 4rem;
   background: linear-gradient(135deg, #163a23 0%, #234d31 100%);
   color: #f8f7f2;
+  border: 2px solid rgba(255, 159, 67, 0.45);
 }
 
 .monteprato-hero {
@@ -11,9 +12,9 @@
   text-align: center;
   padding: 2rem;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(247, 231, 207, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 159, 67, 0.15);
+  border: 2px solid rgba(255, 159, 67, 0.45);
 }
 
 .monteprato-hero__eyebrow {
@@ -73,8 +74,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.8rem;
-  background: linear-gradient(135deg, #1f4d2c, #2f6b3d);
-  color: white;
+  background: linear-gradient(135deg, #f6e7c8, #e9d3a6);
+  color: #163a23;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -100,27 +101,40 @@
   margin: 0 0 0.35rem;
   font-size: 1rem;
   font-weight: 800;
-  color: #f7e7cf;
+  color: #163a23;
 }
 
 .opcao-card p {
   margin: 0;
-  color: #f7e7cf;
+  color: #4c5f4d;
   font-weight: 700;
 }
 
-.opcao-card button {
+.opcao-card button,
+.resumo-limpar,
+.resumo-item__acoes button,
+.resumo-pagar {
   border: none;
   border-radius: 999px;
   padding: 0.7rem 1rem;
-  background: #f7e7cf;
-  color: #163a23;
+  background: #163a23;
+  color: #fff;
   cursor: pointer;
   font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.opcao-card button:hover,
+.resumo-limpar:hover,
+.resumo-item__acoes button:hover,
+.resumo-pagar:hover {
+  transform: translateY(-2px);
+  background: #ff9f43;
+  color: #fff;
 }
 
 .resumo-prato {
-  background: rgba(247, 231, 207, 0.95);
+  background: linear-gradient(135deg, #f6e7c8, #e9d3a6);
   color: #163a23;
   border-radius: 20px;
   padding: 1.2rem;
@@ -129,8 +143,16 @@
   border: 1px solid rgba(22, 58, 35, 0.1);
 }
 
+.resumo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
 .resumo-prato h2 {
-  margin-top: 0;
+  margin: 0;
   font-weight: 800;
   color: #163a23;
 }
@@ -142,14 +164,45 @@
   color: #163a23;
 }
 
+.resumo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.resumo-item__acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.resumo-item__acoes span {
+  min-width: 1.2rem;
+  text-align: center;
+  font-weight: 800;
+}
+
 .resumo-vazio {
-  color: #4b5d4e;
+  color: #4c5f4d;
 }
 
 .resumo-total {
   margin-top: 1rem;
   padding-top: 0.8rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #d9c8a7;
+}
+
+.resumo-pagar {
+  margin-top: 0.8rem;
+  width: 100%;
+}
+
+.resumo-pagamento {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  color: #2f6b3d;
 }
 
 @media (max-width: 800px) {

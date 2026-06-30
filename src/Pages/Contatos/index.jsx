@@ -1,17 +1,28 @@
 
-//Import das Rotas 
-import { Link } from "react-router-dom";
-//Import do use state 
-import { useState } from "react";
-//Import do css para mexer so no Header 
-import "./style.css"
+import { useEffect } from "react";
+import "./style.css";
 
 function Contato() {
-    return (
-        <>
-     <h1>Pagina Cardapio </h1>
-        </>
-    )
+  useEffect(() => {
+    window.location.href = "https://wa.me/5511999999999?text=Olá%20FullNutri,%20quero%20saber%20mais";
+  }, []);
+
+  return (
+    <main className="contato-page">
+      <section className="contato-message">
+        <h1>Redirecionando para o WhatsApp...</h1>
+        <p>Se não for redirecionado automaticamente, clique no botão abaixo.</p>
+        <a
+          className="contato-link"
+          href="https://wa.me/5511999999999?text=Olá%20FullNutri,%20quero%20saber%20mais"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Abrir WhatsApp
+        </a>
+      </section>
+    </main>
+  );
 }
 
 export default Contato
