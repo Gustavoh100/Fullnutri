@@ -347,7 +347,7 @@
   opacity: 1;
 }
 
-..cardapio-card:hover .cardapio-label span,
+.cardapio-card:hover .cardapio-label span,
 .cardapio-card:hover .cardapio-label__price {
   opacity: 0;
   visibility: hidden;
