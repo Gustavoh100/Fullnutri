@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 const opcoesDeAlimentos = [
-  { id: 1, nome: "Arroz", preco: 3.5, peso: 150, emoji: "🍚", imagem: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80" },
-  { id: 2, nome: "Feijão", preco: 2.8, peso: 120, emoji: "🫘", imagem: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" },
-  { id: 3, nome: "Frango grelhado", preco: 6.5, peso: 180, emoji: "🍗", imagem: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=800&q=80" },
-  { id: 4, nome: "Salada", preco: 2.0, peso: 80, emoji: "🥗", imagem: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" },
-  { id: 5, nome: "Batata assada", preco: 3.2, peso: 140, emoji: "🥔", imagem: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=800&q=80" },
-  { id: 6, nome: "Abacaxi", preco: 2.5, peso: 100, emoji: "🍍", imagem: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80" },
+  { id: 1, nome: "Arroz", preco: 3.5, peso: 150, imagem: "https://i.pinimg.com/1200x/d1/ad/87/d1ad870e03222a1628a9ce7edb07c058.jpg" },
+  { id: 2, nome: "Feijão", preco: 2.8, peso: 120, imagem: "https://i.pinimg.com/736x/22/56/97/225697409ae7dbf13173a534d5fd7635.jpg" },
+  { id: 3, nome: "Frango grelhado", preco: 6.5, peso: 180, imagem: "https://i.pinimg.com/1200x/0e/58/2d/0e582d7c89407ba6b6d6a50528ac38ef.jpg" },
+  { id: 4, nome: "Salada", preco: 2.0, peso: 80, imagem: "https://i.pinimg.com/736x/af/0c/d8/af0cd8296b7538581beca458c372b3a3.jpg" },
+  { id: 5, nome: "Batata assada", preco: 3.2, peso: 140, imagem: "https://i.pinimg.com/1200x/4a/61/1c/4a611c49bd9c0f7b716b4a918c9136af.jpg" },
+  { id: 6, nome: "Abacaxi", preco: 2.5, peso: 100, imagem: "https://i.pinimg.com/1200x/c0/fe/71/c0fe71f79672c2a31c41bf7ebdce12cc.jpg" },
 ];
 
 function Monteprato() {
@@ -16,7 +16,18 @@ function Monteprato() {
   const [pedidoConfirmado, setPedidoConfirmado] = useState(false);
 
   const adicionarItem = (item) => {
-    setPrato([...prato, item]);
+    setPrato((itensAtuais) => {
+      const index = itensAtuais.findIndex((entrada) => entrada.id === item.id);
+      if (index === -1) {
+        return [...itensAtuais, { ...item, quantidade: 1 }];
+      }
+      const novoPrato = [...itensAtuais];
+      novoPrato[index] = {
+        ...novoPrato[index],
+        quantidade: novoPrato[index].quantidade + 1,
+      };
+      return novoPrato;
+    });
     setPedidoConfirmado(false);
   };
 
@@ -71,7 +82,7 @@ function Monteprato() {
             <article key={item.id} className="opcao-card">
               <img src={item.imagem} alt={item.nome} className="opcao-card__imagem" />
               <div className="opcao-card__conteudo">
-                <h3>{item.emoji} {item.nome}</h3>
+                <h3>{item.nome}</h3>
                 <p>R$ {item.preco.toFixed(2)} • {item.peso}g</p>
               </div>
               <button type="button" onClick={() => adicionarItem({ ...item, quantidade: 1 })}>

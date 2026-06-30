@@ -5,10 +5,13 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer-site">
-      <p className="footer-site__text">FullNutri © 2026</p>
-      <div className="footer-site__links">
-        <a href="https://wa.me/5511999999999?text=Olá%20FullNutri,%20quero%20saber%20mais" target="_blank" rel="noreferrer">Contatos</a>
-        <Link to="/Terms">Termos e Privacidade</Link>
+      <div className="footer-site__brand">
+        <div className="footer-logo">FN</div>
+        <p className="footer-site__text">FullNutri © 2026</p>
+      </div>
+      <div className="footer-site__actions">
+        <Link to="/Terms" className="footer-site__privacy">Termos de privacidade</Link>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noreferrer" className="footer-contact-btn">Contato</a>
       </div>
     </footer>
   );

@@ -52,7 +52,9 @@
 
 body {
   margin: 0;
-  background: #163a23;
+  background: linear-gradient(rgba(22, 58, 35, 0.82), rgba(35, 77, 49, 0.82)),
+    url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1400&q=80") center/cover fixed no-repeat;
+  background-blend-mode: overlay;
 }
 
 #root {
@@ -65,6 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background: rgba(22, 58, 35, 0.18);
 }
 
 h1,

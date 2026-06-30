@@ -126,6 +126,102 @@
   margin-top: 0;
 }
 
+.cardapio-modal__info {
+  margin: 1rem 0 0.8rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.cardapio-modal__shipping,
+.cardapio-modal__delivery {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cardapio-payment-methods {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.8rem 0 1rem;
+  color: #163a23;
+}
+
+.cardapio-payment-methods span {
+  font-weight: 700;
+}
+
+.cardapio-payment-methods label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
+  background: #f7e7cf;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cardapio-payment-methods input {
+  accent-color: #ff9f43;
+}
+
+.cardapio-modal__info {
+  margin: 1rem 0 0.8rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.cardapio-modal__shipping,
+.cardapio-modal__delivery {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cardapio-payment-methods {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.8rem 0 1rem;
+  color: #163a23;
+}
+
+.cardapio-payment-methods span {
+  font-weight: 700;
+}
+
+.cardapio-payment-methods label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
+  background: #f7e7cf;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cardapio-payment-methods input {
+  accent-color: #ff9f43;
+}
+
+.cardapio-modal__delivery-group {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 700;
+}
+
+.cardapio-modal__delivery-title {
+  font-weight: 700;
+}
+
+.cardapio-modal__delivery-input {
+  width: 100%;
+  margin-top: 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #d9c4a4;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  color: #163a23;
+}
+
 .cardapio-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(240px, 1fr));
@@ -174,8 +270,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   padding: 1.6rem;
   pointer-events: none;
   gap: 0.55rem;
@@ -194,16 +290,11 @@
   letter-spacing: 0.02em;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
 }
 
 .cardapio-label p {
-  color: #f7e7cf;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  display: none;
 }
 
 .cardapio-label__foods {
@@ -211,16 +302,10 @@
   flex-wrap: wrap;
   gap: 0.35rem;
   margin: 0.8rem 0 0;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.cardapio-label__foods span {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
   background: rgba(255, 255, 255, 0.22);
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
@@ -236,7 +321,7 @@
   margin-top: 0.7rem;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
 }
 
 .cardapio-label__price strong {
@@ -250,28 +335,29 @@
 }
 
 .cardapio-card:hover {
-  filter: brightness(0.82) saturate(1.05);
+  filter: brightness(0.8) saturate(1.05);
   transform: translateY(-4px);
 }
 
 .cardapio-card:hover::before {
-  opacity: 0.2;
+  opacity: 0.28;
 }
 
 .cardapio-card:hover .cardapio-overlay {
   opacity: 1;
 }
 
-.cardapio-card:hover .cardapio-label span,
-.cardapio-card:hover .cardapio-label p,
-.cardapio-card:hover .cardapio-label__foods,
+..cardapio-card:hover .cardapio-label span,
 .cardapio-card:hover .cardapio-label__price {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
 }
 
-.cardapio-card:hover .cardapio-label {
-  justify-content: flex-start;
+.cardapio-card:hover .cardapio-label__foods {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 @media (max-width: 900px) {

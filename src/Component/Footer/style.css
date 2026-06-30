@@ -10,30 +10,119 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.footer-site__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #ff9f43;
+  color: #163a23;
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
 .footer-site__text {
   margin: 0;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 
-.footer-site__links {
+.footer-site {
   display: flex;
-  gap: 1.1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, #163d24, #2b5e35 70%, #1f4d2c);
+  color: white;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-site__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #ff9f43;
+  color: #163a23;
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+.footer-site__text {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.footer-site__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-.footer-site__links a {
+.footer-site__privacy {
   color: white;
   text-decoration: none;
   font-weight: 600;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.footer-site__links a:hover {
+.footer-site__privacy:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-1px);
+}
+
+.footer-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: #ff9f43;
+  color: #163a23;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-contact-btn:hover {
+  background: #ffb56b;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .footer-site {
+    flex-direction: column;
+    gap: 0.7rem;
+    text-align: center;
+    padding: 1rem 1.2rem;
+  }
+
+  .footer-site__actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 600px) {

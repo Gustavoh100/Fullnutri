@@ -10,7 +10,7 @@ const destaques = [
     price: "R$ 24,90",
     oldPrice: "R$ 34,90",
     badge: "40% OFF",
-    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80",
+    image: "https://i.pinimg.com/736x/64/60/6d/64606d6d1eb8e3f468fd34107788ce99.jpg",
   },
   {
     title: "Marmita Verde",
